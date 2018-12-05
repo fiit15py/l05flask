@@ -31,16 +31,11 @@ def allowed_file(filename):
 @app.route('/uploadImage', methods=['GET', 'POST'])
 def upload():
     if request.method == 'POST':
-        # check if the post request has the file part
         if 'image' not in request.files:
-            flash('No file part')
-            return redirect(request.url)
+            return render_template('index.html', message='No file part')
         file = request.files['image']
-        # if user does not select file, browser also
-        # submit a empty part without filename
         if file.filename == '':
-            flash('No selected file')
-            return redirect(request.url)
+            return render_template('index.html', message='No file selected')
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
