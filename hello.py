@@ -18,4 +18,12 @@ def formhello():
 def user(name):
     return render_template('user.html', name=name)
 
+# РЕШЕНИЕ ЗАДАЧИ 1
+@app.route('/form/', methods=['POST', 'GET'])
+def form():
+	if request.method=='POST':
+		return render_template('user.html', name=request.form['name'])
+	else:
+		return render_template('form.html');
+
 app.run(debug=True)
