@@ -12,7 +12,7 @@ def index():
 def user(name):
     return render_template('user.html', name=name)
 
-@app.route('/formhello/', methods=['POST', 'GET'])
+@app.route('/form/', methods=['POST', 'GET'])
 def formhello():
 	if request.method == 'POST':
 		return render_template('user.html', name=request.form['name'])
