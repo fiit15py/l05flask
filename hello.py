@@ -8,7 +8,7 @@ def index():
 
 @app.route('/formhello', methods=['POST', 'GET'])
 def formhello():
-	if request.method=='GET':
+	if request.method=='GET': 
 		return render_template('form.html')
 	else:
 		return "Hello"
