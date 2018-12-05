@@ -1,8 +1,12 @@
 <html>
 <body>
+{% block title %}Форма{% endblock %}
+{% extends "index.html" %}
+{% block content %}
 <form action="" method="post">
 <input type="text" name="name">
 <input type="submit">
 </form>
+{% endblock %}
 </body>
 </html>
