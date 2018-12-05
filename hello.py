@@ -17,10 +17,10 @@ def formhello():
 def user(name):
     return render_template('user.html', name=name)
 
-@app.route('/form', methods=['POST', 'GET'])
-def form():
+@app.route('/upload', methods=['POST', 'GET'])
+def upload():
 	if request.method == 'POST':
-		return render_template('user.html', name=request.form['name'])
+		return render_template('succes.html', name=request.form['name'])
 	else:
 		return render_template('form.html')
 
