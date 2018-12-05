@@ -15,6 +15,13 @@ def formhello():
 		request.method=='POST'
 		return render_template('user.html',name=request.form['name'])
 
+@app.route('/formphoto',methods=['POST','GET'])
+def formphoto():
+	if request.method=='GET':
+		return render_template('form.html')
+	else:
+		request.method=='POST'
+		return render_template('user.html',name='asdasd')
 
 @app.route('/user/<name>')
 def user(name):
