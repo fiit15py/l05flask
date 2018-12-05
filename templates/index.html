@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,7 +10,7 @@
     <meta name="author" content="">
     <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
 
-    <title>L05flask: A simple Flask lab</title>
+    <title>{% block head %}L05flask: A simple Flask lab{% endblock %}</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
@@ -50,7 +51,6 @@
                 </p>
                 {% endblock %}
             </div>
-            
         </div>
     </div><!-- /.container -->
 
