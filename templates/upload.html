@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Uploads</title>
+</head>
+<body>
+    <form method="POST" enctype="multipart/form-data" action="{{ url_for('upload') }}">
+	    <input type="file" name="photo">
+	    <button type="submit">Загрузить</button>
+	</form>
+</body>
+</html>
