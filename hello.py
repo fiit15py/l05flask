@@ -8,20 +8,15 @@ def index():
 
 @app.route('/formhello', methods=['POST', 'GET'])
 def formhello():
-	if request.method == 'GET':
-		return render_template('form.html')
+	if request.method == 'POST':
+		return render_template('user.html', name=request.form['name'])
 	else:
-		return "Hello"
+		return render_template('form.html')
 
 @app.route('/user/<name>')
 def user(name):
     return render_template('user.html', name=name)
 
-@app.route('/form', methods=['POST', 'GET'])
-def form():
-	if request.method == 'POST':
-		return render_template('user.html', name=request.form['name'])
-	else:
-		return render_template('form.html')
+
 
 app.run(debug=True)
