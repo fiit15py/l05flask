@@ -1,22 +1,29 @@
-<<<<<<< HEAD
 from flask import Flask, request, render_template
 
-
-=======
-from flask import Flask
-from flask import request, render_template
->>>>>>> origin/gavrilev
 app = Flask(__name__)
+
 
 @app.route('/')
 def index():
     return render_template('index.html')
 
-@app.route('/formhello', methods=['POST','GET'])
+@app.route('/formhello', methods=['POST', 'GET'])
 def formhello():
-    if request.method=='GET':
-    	return render_template('form.html')
-    else:
-    	return "HELLO"
+	if request.method=='GET':
+		return render_template('form.html')
+	else:
+		return "Hello"
+
+@app.route('/user/<name>')
+def user(name):
+    return render_template('user.html', name=name)
+
+# 1
+@app.route('/form/', methods=['POST', 'GET'])
+def form():
+	if request.method=='POST':
+		return render_template('user.html', name=request.form['name'])
+	else:
+		return render_template('form.html')
 
 app.run(debug=True)
