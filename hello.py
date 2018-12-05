@@ -11,7 +11,7 @@ def formhello():
 	if request.method=='GET':
 		return render_template('form.html')
 	else:
-		return "Hello"
+		return   "Hello"
 
 @app.route('/user/<name>')
 def user(name):
