@@ -10,9 +10,9 @@ def index():
 def formhello():
 	if request.method=='GET':
 		return render_template('form.html')
-	else:
+	else: 
 		return "Hello"
-
+ 
 @app.route('/user/<name>')
 def user(name):
     return render_template('user.html', name=name)
