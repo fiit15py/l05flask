@@ -42,7 +42,11 @@ def upload():
 			return "fail"
 		if file and allowed_file(file.filename):
 			filename = secure_filename(file.filename)
-			file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+			if os.path.isdir(app.config['UPLOAD_FOLDER']):
+				file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+			else:
+				os.makedirs(app.config['UPLOAD_FOLDER'])
+				file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 			return "success"
 	else:
 		return render_template('formpic.html')
