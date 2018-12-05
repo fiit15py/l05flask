@@ -1,9 +1,14 @@
-<html>
-<body>
-<form action="" method="post">
-<input type="file" name="file" >
-<input type="text" name="name">
-<input type="submit">
+{% extends "index.html" %}
+
+{% block header %}
+Загрузка фото
+{% endblock %}
+
+{% block content %}
+<form action="" method="post" enctype="multipart/form-data">
+    <span class="btn btn-default btn-file">
+        Browse: <input type="file" name="image">
+        </span>
+<input type="submit" value="Upload image" class="btn btn-primary">
 </form>
-</body>
-</html>
+{% endblock %}
