@@ -1,19 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-</head>
+{% extends "index.html" %}
 
-<body>
-<header class="navbar">
-  <form action="/upload" method="POST" enctype="multipart/form-data" >
-      <span class="btn btn-default btn-file">
-        Browse: <input type="file" name="image">
-      </span>
+{% block header %}
+Загрузка фото
+{% endblock %}
+
+{% block content %}
+<form action="/upload" method="POST" enctype="multipart/form-data" >
+    <span class="btn btn-default btn-file">
+    Browse: <input type="file" name="image">
+    </span>
     <input type="submit" value="Upload your image" class="btn btn-primary">
-  </form>
-  {{message}}
-</header>
-
-</body>
-</html>
+</form>
+{% endblock %}
