@@ -6,15 +6,15 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route('/login', methods=['POST', 'GET'])
+@app.route('/login', methods = ['POST', 'GET'])
 def login():
-	if request.method=='POST':
-		return render_template('user.html', name=request.form['name'])
+	if request.method == 'POST':
+		return render_template('user.html', name = request.form['name'])
 	else:
 		return render_template('login.html');
 
 @app.route('/user/<name>')
 def user(name):
-    return render_template('user.html', name=name)
+    return render_template('user.html', name = name)
 
-app.run(debug=True)
+app.run(debug = True)
