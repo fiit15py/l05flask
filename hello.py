@@ -17,4 +17,4 @@ def login():
 def user(name):
     return render_template('user.html', name=name)
 
-app.run(debug = True)
+app.run(debug=True)
