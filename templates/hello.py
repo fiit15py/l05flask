@@ -6,19 +6,14 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route('/formhello', methods=['POST', 'GET'])
-def formhello():
-	if request.method == 'GET':
-		return render_template('form.html')
-	else:
-		return "Hello"
+
 
 @app.route('/user/<name>')
 def user(name):
     return render_template('user.html', name=name)
 
-@app.route('/form', methods=['POST', 'GET'])
-def form():
+@app.route('/formhello/', methods=['POST', 'GET'])
+def formhello():
 	if request.method == 'POST':
 		return render_template('user.html', name=request.form['name'])
 	else:
