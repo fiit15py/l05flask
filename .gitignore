@@ -41,5 +41,6 @@ nosetests.xml
 # Virtual environment
 venv
 
-#IDEA
+# IDEs
+.vscode
 .idea
