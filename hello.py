@@ -14,6 +14,8 @@ def index():
 def formhello():
 	if request.method=='POST':
 		return render_template('user.html', name=request.form['name'])
+	if request.method == 'GET':
+		return render_template('form.html')
 	else:
 		return render_template('form.html')
 
