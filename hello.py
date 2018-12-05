@@ -17,7 +17,7 @@ def allowed_file(filename):
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html',route='home')
 
 
 @app.route('/user/<name>')
@@ -29,9 +29,9 @@ def user(name):
 @app.route('/form/', methods=['POST', 'GET'])
 def form():
     if request.method == 'POST':
-        return render_template('user.html', name=request.form['name'])
+        return render_template('user.html', name=request.form['name'], route='form')
     else:
-        return render_template('form.html')
+        return render_template('form.html', route='form')
 
 
 # РЕШЕНИЕ ЗАДАЧИ 2
@@ -53,8 +53,8 @@ def upload_file():
             filename2 = len([name for name in os.listdir(UPLOAD_FOLDER) if os.path.isfile(os.path.join(UPLOAD_FOLDER, name))])
             fullname2 = filename2.__str__() + '.' + fextension;
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], fullname2))
-            return render_template('success.html', name=filename, name2=fullname2)
+            return render_template('success.html', name=filename, name2=fullname2, route='upload')
     else:
-        return render_template('upload.html')
+        return render_template('upload.html', route='upload')
 
 app.run(debug=True)

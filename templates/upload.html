@@ -1,14 +1,9 @@
-<!doctype html>
-<html>
-<head>
-    <title>Upload new Image</title>
-    <meta charset="UTF-8">
-</head>
-<body>
-    <h1>Upload the Image</h1>
+{% extends "index.html" %}
+
+{% block content %}
+    <h1>Загрузите изображение</h1>
     <form method=post enctype=multipart/form-data>
         <input type=file name=file>
         <input type=submit value=Upload>
     </form>
-</body>
-</html>
+{% endblock %}
