@@ -28,19 +28,19 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-@app.route('/uploadImage', methods=['GET', 'POST'])
+@app.route('/upload', methods=['GET', 'POST'])
 def upload():
     if request.method == 'POST':
         if 'image' not in request.files:
-            return render_template('index.html', message='No file part')
+            return render_template('upload.html', message='No file part')
         file = request.files['image']
         if file.filename == '':
-            return render_template('index.html', message='No file selected')
+            return render_template('upload.html', message='No file selected')
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             return redirect(url_for('uploaded_file', filename=filename))
-    return render_template('index.html')
+    return render_template('upload.html')
 	
 @app.route('/uploads/<filename>')
 def uploaded_file(filename):
