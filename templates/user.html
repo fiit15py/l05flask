@@ -1,1 +1,9 @@
-Hello, {{ name }}!
+{% extends  "index.html" %}
+{% block header %}
+{% endblock %}
+{% block teatle %}
+    <title>Response Example</title>
+     {% endblock %}
+{% block content %}
+Hi, {{ name }}!
+{% endblock %}
