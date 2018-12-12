@@ -37,9 +37,9 @@ def  upload():
 		npA = np.array(A)
 		j = npA.argmax()
 		if A[j] > 0.6:
-			return render_template('result.html', value= 'Я думаю это ' + labels[j] + ' похожесть '+ '%.2f' % (A[j]*100) + '%')
+			return render_template('result.html', value= 'Я думаю это ' + labels[j] + ' похожесть '+ '%.2f' % (A[j]*100) + '%      '+str(j))
 		else:
-			return render_template('result.html', value= 'Нет совпадений, больше всего похоже на ' + labels[j] + ' похожесть '+ '%.2f' % (A[j]*100) + '%')
+			return render_template('result.html', value= 'Нет совпадений, больше всего похоже на ' + labels[j] + ' похожесть '+ '%.2f' % (A[j]*100) + '%      '+str(j))
 	else:
 		return render_template('upload.html')
 
