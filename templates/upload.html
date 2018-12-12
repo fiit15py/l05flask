@@ -1,13 +1,14 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Uploads</title>
-</head>
-<body>
-    <form method="POST" enctype="multipart/form-data" action="{{ url_for('upload') }}">
-	    <input type="file" name="photo">
-	    <button type="submit">Загрузить</button>
-	</form>
-</body>
-</html>
+{% extends "index.html" %}
+
+{% block header %}
+Загрузка фото
+{% endblock %}
+
+{% block content %}
+<form action="/upload" method="POST" enctype="multipart/form-data" >
+    <span class="btn btn-default btn-file">
+    Browse: <input type="file" name="image">
+    </span>
+    <input type="submit" value="Upload your image" class="btn btn-primary">
+</form>
+{% endblock %}

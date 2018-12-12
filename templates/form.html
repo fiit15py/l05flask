@@ -1,4 +1,12 @@
+{% extends "index.html" %}
+
+
+{% block head %}
+Приветствие из URL
+{% endblock %}
+{% block content %}
 <form action="{{ url_for('formhello') }}" method="post">
 <input type="text" name="name">
 <input type="submit">
 </form>
+{% endblock %}
